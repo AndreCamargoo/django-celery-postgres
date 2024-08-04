@@ -1,0 +1,12 @@
+docker compose build
+docker-compose up -d
+docker compose run --rm web bash
+docker compose exec web python manage.py shell
+docker compose logs celery_worker
+docker compose exec redis sh
+-- redis-cli
+
+docker compose run --rm web bash
+-- python manage.py showmigrations
+-- python manage.py makemigrations
+-- python manage.py migrate api zero
